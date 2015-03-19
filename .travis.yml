@@ -8,27 +8,30 @@ before_script:
  - sudo apt-get install binutils-dev
  - sudo apt-get install libboost-all-dev
  - cd decaf
+
 script: 
- - ./configure --disable-vmi --disable-tcg-taint > log.txt
- - cat log.txt
+ - ./configure --disable-vmi --disable-tcg-taint > log1.txt
+ - make
+ - make distclean
+ - reset
 
+ - ./configure --disable-vmi --enable-tcg-taint > log2.txt
+ - make
+ - make distclean
+ - reset
 
-# - make
-# - make distclean
-# - reset
-# - ./configure --disable-vmi --enable-tcg-taint
-# - make
-# - make distclean
-# - reset
-# - ./configure --enable-vmi --disable-tcg-taint
-# - make
-# - make distclean
-# - reset
-# - ./configure --enable-vmi --enable-tcg-taint
-# - make
-# - make distclean
-# - reset
-# - ./configure --enable-vmi --enable-tcg-taint --enable-tcg-ir-log
-# - make
-# - make distclean
+ - ./configure --enable-vmi --disable-tcg-taint > log3.txt
+ - make
+ - make distclean
+ - reset
+
+ - ./configure --enable-vmi --enable-tcg-taint > log4.txt
+ - make
+ - make distclean
+ - reset
+
+ - ./configure --enable-vmi --enable-tcg-taint --enable-tcg-ir-log > log4.txt
+ - make
+ - make distclean
 language: c
+
