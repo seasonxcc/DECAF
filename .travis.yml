@@ -11,27 +11,27 @@ before_script:
 
 script: 
  - ./configure --disable-vmi --disable-tcg-taint > log1.txt
- - make
+ - make >> log1.txt
  - make distclean
  - reset
 
  - ./configure --disable-vmi --enable-tcg-taint > log2.txt
- - make
+ - make >> log2.txt
  - make distclean
  - reset
 
  - ./configure --enable-vmi --disable-tcg-taint > log3.txt
- - make
+ - make >> log3.txt
  - make distclean
  - reset
 
  - ./configure --enable-vmi --enable-tcg-taint > log4.txt
- - make
+ - make >> log4.txt
  - make distclean
  - reset
 
- - ./configure --enable-vmi --enable-tcg-taint --enable-tcg-ir-log > log4.txt
- - make
+ - ./configure --enable-vmi --enable-tcg-taint --enable-tcg-ir-log > log5.txt
+ - make >> log5.txt
  - make distclean
 language: c
 
