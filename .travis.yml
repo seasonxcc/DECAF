@@ -14,7 +14,8 @@ before_script:
 
 env:
  matrix:
-  - Cmd="ls"
-  - Cmd="pwd"
+  - Cmd="./configure --disable-vmi --disable-tcg-taint"
+  - Cmd="./configure --disable-vmi --enable-tcg-taint"
+
 script:
  - $Cmd
