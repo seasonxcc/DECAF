@@ -9,7 +9,3 @@ env:
   - Cmd="pwd"
 script:
  - $Cmd
-# "test exec:$TEST_SUITE"
-
-
-
