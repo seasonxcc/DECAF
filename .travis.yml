@@ -1,10 +1,13 @@
 os:
 - linux
 language: c
+
 env:
+
 matrix:
 - Command="ls"
 - Command="pwd"
+
 script:
 - $Command
 # "test exec:$TEST_SUITE"
