@@ -9,29 +9,36 @@ before_script:
  - sudo apt-get install libboost-all-dev
  - cd decaf
 
+env:
+  matrix:
+    - Cmd = "./configure --disable-vmi --disable-tcg-taint"
+    - Cmd = "./configure --disable-vmi --enable-tcg-taint"
+
 script: 
- - ./configure --disable-vmi --disable-tcg-taint > log1.txt
- - make >> log1.txt
- - make distclean
- - reset
+	$Cmd && make && make disclean && reset 
 
- - ./configure --disable-vmi --enable-tcg-taint > log2.txt
- - make >> log2.txt
- - make distclean
- - reset
+# - ./configure --disable-vmi --disable-tcg-taint > log1.txt
+# - make >> log1.txt
+# - make distclean
+# - reset
 
- - ./configure --enable-vmi --disable-tcg-taint > log3.txt
- - make >> log3.txt
- - make distclean
- - reset
+# - ./configure --disable-vmi --enable-tcg-taint > log2.txt
+# - make >> log2.txt
+# - make distclean
+# - reset
 
- - ./configure --enable-vmi --enable-tcg-taint > log4.txt
- - make >> log4.txt
- - make distclean
- - reset
+# - ./configure --enable-vmi --disable-tcg-taint > log3.txt
+# - make >> log3.txt
+# - make distclean
+# - reset
 
- - ./configure --enable-vmi --enable-tcg-taint --enable-tcg-ir-log > log5.txt
- - make >> log5.txt
- - make distclean
+# - ./configure --enable-vmi --enable-tcg-taint > log4.txt
+# - make >> log4.txt
+# - make distclean
+# - reset
+
+# - ./configure --enable-vmi --enable-tcg-taint --enable-tcg-ir-log > log5.txt
+# - make >> log5.txt
+# - make distclean
 language: c
 
