@@ -14,7 +14,8 @@ env:
     - Cmd = "./configure --disable-vmi --disable-tcg-taint"
     - Cmd = "./configure --disable-vmi --enable-tcg-taint"
 
-script: $Cmd 
+script:
+ - $Cmd 
 
 # - ./configure --disable-vmi --disable-tcg-taint > log1.txt
 # - make >> log1.txt
