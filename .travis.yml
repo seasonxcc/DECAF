@@ -16,6 +16,10 @@ env:
  matrix:
   - Cmd="./configure --disable-vmi --disable-tcg-taint"
   - Cmd="./configure --disable-vmi --enable-tcg-taint"
+  - Cmd="./configure --enable-vmi --disable-tcg-taint"
+  - Cmd="./configure --enable-vmi --enable-tcg-taint"
+  - Cmd="./configure --enable-vmi --enable-tcg-taint --enable-tcg-ir-log"
+
 
 script:
- - $Cmd
+ - $Cmd && make && make distclean && reset
