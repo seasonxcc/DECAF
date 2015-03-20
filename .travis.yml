@@ -3,10 +3,10 @@ os:
 language: c
 env:
 matrix:
-- Cmd="ls"
-- Cmd="pwd"
+- Command="ls"
+- Command="pwd"
 script:
-- $Cmd
+- $Command
 # "test exec:$TEST_SUITE"
 
 
