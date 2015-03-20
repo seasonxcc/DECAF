@@ -1,52 +1,10 @@
 os:
- - linux
-
-
-language:
- - c
-
-#before_script:
-# - sudo apt-get update
-# - sudo apt-get install qemu
-# - sudo apt-get install binutils
-# - sudo apt-get install build-essential
-# - sudo apt-get install binutils-dev
-# - sudo apt-get install libboost-all-dev
-# - cd decaf
-
-
+- linux
+language: c
 env:
-  matrix:
-   # - Cmd = "./configure --disable-vmi --disable-tcg-taint"
-   # - Cmd = "./configure --disable-vmi --enable-tcg-taint"
-   - Cmd = "ls"
-   - Cmd = "pwd"
-
+matrix:
+- Cmd="ls"
+- Cmd="pwd"
 script:
- - $Cmd 
-
-# - ./configure --disable-vmi --disable-tcg-taint > log1.txt
-# - make >> log1.txt
-# - make distclean
-# - reset
-
-# - ./configure --disable-vmi --enable-tcg-taint > log2.txt
-# - make >> log2.txt
-# - make distclean
-# - reset
-
-# - ./configure --enable-vmi --disable-tcg-taint > log3.txt
-# - make >> log3.txt
-# - make distclean
-# - reset
-
-# - ./configure --enable-vmi --enable-tcg-taint > log4.txt
-# - make >> log4.txt
-# - make distclean
-# - reset
-
-# - ./configure --enable-vmi --enable-tcg-taint --enable-tcg-ir-log > log5.txt
-# - make >> log5.txt
-# - make distclean
-
-
+- $Cmd
+# "test exec:$TEST_SUITE"
