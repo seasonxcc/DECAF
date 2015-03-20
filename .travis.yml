@@ -3,6 +3,15 @@ os:
 
 language: c
 
+before_script:
+- sudo apt-get update
+- sudo apt-get install qemu
+- sudo apt-get install binutils
+- sudo apt-get install build-essential
+- sudo apt-get install binutils-dev
+- sudo apt-get install libboost-all-dev
+- cd decaf
+
 env:
  matrix:
   - Cmd="ls"
